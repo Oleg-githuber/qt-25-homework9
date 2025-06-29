@@ -82,7 +82,7 @@ void UDPworker::ReadTextFromDatagram(QNetworkDatagram datagram)
     QString txt;
     inStr >> txt;
 
-    QString message = "Принято сообщение от " + ipText + ", размер сообщения " + QString::number(sizeof(txt)) + " байт.";
+    QString message = "Принято сообщение от " + ipText + ", размер сообщения " + QString::number(txt.toUtf8().size()) + " байт.";
     emit sig_sendTextToGUI(message);
     emit sig_sendTextToGUI("Сообщение: " + txt);
 }
